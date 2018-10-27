@@ -1,0 +1,87 @@
+  /*! orgstyle-custom.css | MIT License | Haran Mia */
+  /* -- */
+
+  body #preamble {
+      position: relative;
+      border-bottom: 4px solid #8b8b8b;
+  }
+  body #postamble {
+      border-bottom: 2px solid #8b8b8b;
+  }
+
+
+  .mainsail {
+      margin:.8em auto;
+      color:#A53539/*#000*/
+  }
+
+  .headsail,.mainsail {
+      color:black;
+      text-align:left;
+      font-family: "Open Sans", "Deja Vu Sans", Georgia, sans;
+      font-size:250%;
+      /*text-align:center;*/
+
+  }
+
+  .headsail {
+      line-height:1.4;
+      font-weight:700;
+      margin:1em auto;
+      color:#B9543C;
+      /*font-size:1.1em;*/
+
+  }
+
+
+  compass a {
+      background: none;
+  }
+
+  compass {
+      font-family: $monospace;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 0;
+      margin: 0;
+      hyphens: none;
+  }
+
+  compass {
+      position:absolute;
+      /*width:50%;
+        height:100%;*/
+
+      /*background: red;
+        display: block; *//* fix for opera and ff */
+
+      text-align:right;
+      margin-top: 1em;
+      right:0;
+      top:0;
+      margin-top:0;
+    font-size: 1rem;
+  }
+
+  compass > a {
+      margin: 0 1ex;
+      color:#FF8C00;
+  }
+
+  body .abstract {
+    margin: auto;
+    width: 90%;
+    font-style: italic;
+    border-bottom: 2px solid #8b8b8b;
+    /*border-bottom: 3px double #8b8b8b;*/
+  }
+
+  body .abstract p:last-of-type {
+    margin-bottom:.5em;
+  }
+  body .abstract p:last-of-type:before {
+      content:"";
+      white-space:pre
+  }
+
+  /* -- */
