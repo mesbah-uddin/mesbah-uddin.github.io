@@ -57,9 +57,13 @@ html,
 body {
   margin: 0;
   padding: 0;
+  /*mu
   color: #222;
-  background-color: #F8ECC2;
+  background-color: #F8ECC2;*/
+  color: #999999; /*mu pick color from CCC */
+  background-color: #000800;/*mu #20201c*/
 }
+
 
 @media (min-width: 38em) {
   html {
@@ -70,7 +74,9 @@ body {
 
 body {
   padding-top: 1rem;
-  font-size: 90%;
+  /*mu
+    font-size: 90%; */
+    font-size: 105%;
   /* -webkit-text-size-adjust: 100%; */
   /* -ms-text-size-adjust: 100%; */
 }
@@ -84,7 +90,8 @@ pre {
 
 code {
   padding: .1em;
-  font-size: 90%;
+  /*mu font-size: 90%;*/
+  font-size: 105%; /*mu*/
   color: #401515;
   /* font-weight:bold; */
 }
@@ -95,7 +102,8 @@ pre {
   -moz-border-radius:8px;
   -webkit-border-radius:8px;
   border-radius:8px;
-  background-color: #000;
+  /*mu background-color: #000;*/
+  background-color: #101010;/*mu*/
   display: block;
   margin-top: 0;
   margin-bottom: 1rem;
@@ -115,15 +123,16 @@ pre code {
 }
 
 a code {
-  color: #aa433d;
-  /* color: #3a3199; */
+    color: #aa433d;
+    /* color: #3a3199; */
 }
 
 /* No `:visited` state is required by default (browsers will use `a`) */
 a {
-  color: #aa1300;
-  /* color: #134bb2; */
-  text-decoration: none;
+    color: #4d4d4d; /*mu #660033; mu*/
+    /*mu color: #aa1300;*/
+    /* color: #134bb2; */
+    text-decoration: none;
 }
 a strong {
   color: inherit;
@@ -141,7 +150,8 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: .5rem;
   font-weight: bold;
   line-height: 1.25;
-  color: #222;
+  /*mu color: #222; */
+  color: #ead075; /*mu #737373 #454545 */
   letter-spacing: 1px;
 }
 h1 {
@@ -307,8 +317,9 @@ th {
   border: 1px solid #e5e5e5;
 }
 tbody tr:nth-child(odd) td,
-         tbody tr:nth-child(odd) th {
-  background-color: #F1EED9;
+tbody tr:nth-child(odd) th {
+    /*mu background-color: #F1EED9;*/
+    background-color: #101010; /*mu*/
 }
 
 
@@ -414,9 +425,9 @@ tbody tr:nth-child(odd) td,
 .masthead .mainsail, .masthead .headsail, .masthead compass, /*mu*/
 .masthead .title, .masthead .tagline,
 .masthead .links {
-  margin-top: 0;
-  margin-bottom: 0;
-  color: #505050;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #505050;
 }
 
 .masthead compass, /*mu*/
@@ -426,7 +437,8 @@ tbody tr:nth-child(odd) td,
 
 .masthead a, /*mu*/
 .masthead a {
-  color: #202020;
+    /*mu color: #202020; */
+    color: #b9543c;
 }
 
 .masthead small, /*mu*/
@@ -435,7 +447,8 @@ tbody tr:nth-child(odd) td,
   font-family: 'Droid Sans', sans-serif;
   font-size: 90%;
   font-weight: 400;
-  color: #909090;
+  /*mu color: #909090;*/
+  color: #ead075;
   letter-spacing: 0;
 }
 
@@ -491,7 +504,8 @@ a.author:focus {
   margin: 0;
   margin-bottom: 3em;
 
-  color: #333;
+  /*me color: #333;*/
+  color: #999999;/*mu*/
   /* -moz-border-radius:6px; */
   /* -webkit-border-radius:6px; */
   /* box-shadow: .1rem .1rem .1rem #666; */
@@ -512,7 +526,8 @@ a.author:focus {
 .page-title,
 .post-title,
 .post-title a {
-  color: #303030;
+    /*mu color: #303030;*/
+    color: #ead075;/*mu*/
 }
 .course-tite, .cruise-headline a, .cruise-headline, /*mu*/
 .page-title,
@@ -534,7 +549,8 @@ a.author:focus {
 }
 .cruise-date, /*mu others: TODO*/
 .post-date, .post-date .comment-link, .timestamp {
-  color: #9a9a9a;
+    /*mu color: #9a9a9a;*/
+    color: #4d4d4d; /*mu*/
 }
 
 /* Share Buttons */
@@ -920,3 +936,27 @@ figure.highlight {
   margin-left: 0.5em;
   margin-right: 0.5em;
 }
+
+
+/* mu -- facebook comments plugin starts */
+
+.fb-comments, .fb-comments span, .fb-comments iframe {
+    min-width: 100% !important;
+    max-width: 100% !important;
+    color: #b9543c !important;
+}
+
+.fb-comments a, .fb-comments span a, .fb-comments iframe a {
+    color: #ead075 !important;
+}
+.feedback {
+    width: 100%;
+    float: left;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #b9543c;
+    background-color: #101010;
+}
+.feedback a {
+    color: #ead075;
+}
+/* mu -- facebook comments plugin ends */
