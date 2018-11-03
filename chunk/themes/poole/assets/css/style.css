@@ -958,7 +958,7 @@ figure.highlight {
     float: left;
     font-family: Arial, Helvetica, sans-serif;
     color: #b9543c;
-    background-color: #30415d; /*#535353;*/
+    background-color: #f5f5f5; /*#30415d; #535353;*/
 }
 .feedback a {
     color: #ead075;
