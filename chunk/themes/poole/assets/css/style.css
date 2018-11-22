@@ -1,442 +1,431 @@
-/* Heavily modified
-   *                        ___
-   *                       /\_ \
-   *  _____     ___     ___\//\ \      __
-   * /\ '__`\  / __`\  / __`\\ \ \   /'__`\
-   * \ \ \_\ \/\ \_\ \/\ \_\ \\_\ \_/\  __/
-   *  \ \ ,__/\ \____/\ \____//\____\ \____\
-   *   \ \ \/  \/___/  \/___/ \/____/\/____/
-   *    \ \_\
-   *     \/_/
-   *
-   * Designed, built, and released under MIT license by @mdo. Learn more at
-   * https://github.com/poole/poole.
-   */
+/*  (Modified)
+ *                        ___
+ *                       /\_ \
+ *  _____     ___     ___\//\ \      __
+ * /\ '__`\  / __`\  / __`\\ \ \   /'__`\
+ * \ \ \_\ \/\ \_\ \/\ \_\ \\_\ \_/\  __/
+ *  \ \ ,__/\ \____/\ \____//\____\ \____\
+ *   \ \ \/  \/___/  \/___/ \/____/\/____/
+ *    \ \_\
+ *     \/_/
+ *
+ * Designed, built, and released under MIT license by @mdo. Learn more at
+ * https://github.com/poole/poole.
+ */
+/*
+ *
+ * "variables";
+ * "base";
+ * "type";
+ * "syntax"; (provide in syntax.css)
+ * "code";
+ * "layout";
+ * "masthead";
+ * "posts";
+ * "pagination";
+ * "message";
+ */
 
+:root {
+  --default-gray-1: #f9f9f9;
+  --default-gray-2: #ccc;
+  --default-gray-3: #767676;
+  --default-4: #515151;
+  --default-5: #313131;
 
-  /*
-   * Contents
-   *
-   * Body resets
-   * Custom type
-   * Messages
-   * Container
-   * Masthead
-   * Posts and pages
-   * Pagination
-   * Reverse layout
-   * Themes
-   */
+  --default-red: #ac4142;
+  --default-orange: #d28445;
+  --default-yellow: #f4bf75;
+  --default-green: #90a959;
+  --default-cyan: #75b5aa;
+  --default-blue: #268bd2;
+  /* --default-blue: #6a9fb5; */
+  --default-brown: #8f5536;
 
-  /* @font-face{font-family:"Charter";src:url("charter_regular-webfont.woff") format('woff')} */
-  /* @font-face{font-family:"Charter";src:url("charter_bold-webfont.woff") format('woff');font-weight:bold} */
-  /* @font-face{font-family:"Charter";src:url("charter_italic-webfont.woff") format('woff');font-style:italic} */
-  /* @font-face{font-family:"Charter";src:url("charter_bold_italic-webfont.woff") format('woff');font-style:italic;font-weight:bold} */
+  --default-root-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  --default-root-font-size: 16px;
+  --default-root-line-height: 1.5;
 
-  /*
-   * Body resets
-   *
-   * Update the foundational and global aspects of the page.
-   */
+  --default-body-color: #222; /*#515151;*/
+  --default-body-bg: #f8ecc2; /*#fff;*/
+  --default-link-color: --default-blue;
 
-  html {
-    font-family: "Droid Serif", serif;
-    font-size: 100%;
-    line-height: 1.5;
-    box-sizing: border-box;
-  }
+  --default-border-color: #e5e5e5;
 
-  * {
-    text-rendering: optimizeLegibility;
-    -webkit-box-sizing: inherit;
-    -moz-box-sizing: inherit;
-    box-sizing: inherit;
-  }
+  --default-large-breakpoint: 38em;
+  --default-large-font-size: 20px;
 
-  html,
-  body {
+  --default-code-font-family: Menlo, Monaco, "Courier New", monospace;
+  --default-code-color: #bf616a;
+}
+
+/* Body resets
+ *
+ * Update the foundational and global aspects of the page.
+ */
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
     margin: 0;
     padding: 0;
-    color: #222;
-    background-color: #F5F5F5;
-  }
-
-  @media (min-width: 38em) {
-    html {
-      /* font-size: 18px; */
-      padding-top: 1rem;
-    }
-  }
-
-  body {
-    padding-top: 1rem;
-    font-size: 90%;
-    /* -webkit-text-size-adjust: 100%; */
-    /* -ms-text-size-adjust: 100%; */
-  }
-
-  /* Code */
-  code,
-  pre {
-    font-family: 'Droid Sans Mono', monospace;
-    font-weight: 600;
-  }
-
-  code {
-    padding: .1em;
-    font-size: 90%;
-    color: #401515;
-    /* font-weight:bold; */
-  }
-
-  blockquote code {color: inherit;}
-
-  pre {
-    -moz-border-radius:8px;
-    -webkit-border-radius:8px;
-    border-radius:8px;
-    background-color: #555;
-    display: block;
-    margin-top: 0;
-    margin-bottom: 1rem;
-    padding: 0.3rem;
-    font-size: .9em;
-    line-height: 1.4;
-    white-space: pre;
-    overflow: auto;
-  }
-
-  pre code {
-    font-weight:normal;
-    padding: 0;
+    border: 0;
     font-size: 100%;
-    color: inherit;
-    background-color: transparent;
-  }
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
 
-  a code {
-    color: #aa433d;
-    /* color: #3a3199; */
-  }
+/* http://meyerweb.com/eric/tools/css/reset/ -- v2.0 | 20110126 -- License: none (public domain) */
 
-  /* No `:visited` state is required by default (browsers will use `a`) */
-  a {
-    color: #555;
-    /* color: #134bb2; */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: var(--default-root-font-family);
+    font-size: var(--default-root-font-size);
+    line-height: var(--default-root-line-height);
+}
+/* @media (min-width: var(--default-large-breakpoint)) { */
+@media (min-width: 38em) {
+    html {
+        font-size: var(--default-large-font-size);
+    }
+}
+
+
+body {
+    color: var(--default-body-color);
+    background-color: var(--default-body-bg);
+    line-height: var(--default-root-line-height);
+
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+/* No `:visited` state is required by default (browsers will use `a`) */
+a {
+    color: var(--default-link-color);
     text-decoration: none;
-  }
-  a strong {
+}
+/* `:focus` is linked to `:hover` for basic accessibility */
+a:hover,
+a:focus {
+    text-decoration: underline;
+}
+a strong {
     color: inherit;
-  }
-  /* `:focus` is linked to `:hover` for basic accessibility */
-  a:hover,
-  a:focus {
-      text-decoration: underline;
-  }
+}
 
-  
-  /* Headings */
-  h1, h2, h3, h4, h5, h6 {
-    text-rendering: optimizeLegibility;
-    margin-bottom: .5rem;
-    font-weight: bold;
+
+
+img {
+    display: block;
+    max-width: 100%;
+    margin: 0 0 1rem;
+    border-radius: 5px;
+}
+
+table {
+    margin-bottom: 1rem;
+    width: 100%;
+    font-size: 85%;
+    border: 1px solid #e5e5e5;
+}
+
+td,
+th {
+    padding: .25rem .5rem;
+    border: 1px solid #e5e5e5;
+}
+
+th {
+    text-align: left;
+}
+
+tbody tr:nth-child(odd) td,
+tbody tr:nth-child(odd) th {
+    background-color: #f9f9f9;
+}
+
+/* Typography
+ *
+ * Headings, body text, lists, and other misc typographic elements.
+ */
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0;
+    font-weight: 600;
     line-height: 1.25;
-    color: #222;
-    letter-spacing: 1px;
-  }
-  h1 {
-    font-size: 1.7rem;
-  }
-  .journey h1 {
+    color: #313131;
+    text-rendering: optimizeLegibility;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    margin-top: 1rem;
     font-size: 1.5rem;
-  }
+}
 
-  .main-deck h2 {
-    margin-top: 1.7rem;
+h3 {
+    margin-top: 1.5rem;
     font-size: 1.25rem;
-  }
+}
 
-  .main-deck h3,
-  .main-deck h4,
-  .main-deck h5,
-  .main-deck h6 {
+h4, h5, h6 {
     margin-top: 1rem;
     font-size: 1rem;
-  }
+}
 
-  
-  /* Body text */
-  p {
+p {
     margin-top: 0;
     margin-bottom: 1rem;
-  }
+}
 
-  strong {
+strong {
     color: #303030;
-  }
+}
 
-
-  /* Lists */
-  ul, ol, dl {
+ul, ol, dl {
     margin-top: 0;
     margin-bottom: 1rem;
-  }
+}
 
-  dt {
+dt {
     font-weight: bold;
-  }
-  dd {
-    margin-bottom: .5rem;
-  }
+}
 
-  
-  /* Misc */
-  hr {
+dd {
+    margin-bottom: .5rem;
+}
+
+hr {
     position: relative;
     margin: 1.5rem 0;
-    border: 1px solid #CCC;
-    margin-bottom: .5em;
-    /* border-top: 1px solid #eee; */
-    /* border-bottom: 1px solid #fff; */
-  }
+    border: 0;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
 
-  abbr {
+abbr {
     font-size: 85%;
     font-weight: bold;
     color: #555;
     text-transform: uppercase;
-  }
-  abbr[title] {
+}
+abbr[title] {
     cursor: help;
     border-bottom: 1px dotted #e5e5e5;
-  }
+}
 
-  /* Pygments via Jekyll */
-  .highlight {
-    margin-bottom: 1rem;
-    border-radius: 4px;
-  }
-  .highlight pre {
-    margin-bottom: 0;
-  }
-
-  
-  /* Series List */
-  .series ul {
-    /* list-style: none; */
-    padding-left: 1.5em;
-    margin-bottom: 0;
-  }
-  .series h4 {
-    font-family: 'Droid Sans', "Helvetica Neue", Helvetica, sans-serif;
-    margin-top: 0;
-    weight: normal;
-  }
-  .series-title {
-    font-family: "Droid Serif", serif;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-    weight:bold;
-  }
-  .series-post {
-    font-family: "Droid Serif", serif;
-    letter-spacing:.7px;
-    margin-top: .2em;
-  }
-
-  .series {
-    font-size: 95%;
-    -moz-border-radius:8px;
-    -webkit-border-radius:8px;
-    border-radius:8px;
-    border: 2px solid #d1cEb9;
-    /* background-color: #d9e9c9; */
-    display: inline-block;
-    /* margin-top: 0; */
-    margin-bottom: 1rem;
-    padding: 0.5rem;
-  }
-
-  
-  /* Quotes */
-  /* blockquote {white-space:pre-line;} */
-  blockquote {
+blockquote {
     padding: .5rem 1rem;
     margin: .8rem 0;
-    color: #555;
-    border-left: .25rem solid #CCC;
-  }
-  .verse {
-    font-family: 'Droid Sans Mono', monospace;
-    font-size: 80%;
-  }
-  blockquote p:last-child {
+    color: #7a7a7a;
+    border-left: .25rem solid #e5e5e5;
+}
+blockquote p:last-child {
     margin-bottom: 0;
-  }
-  @media (min-width: 30em) {
+}
+@media (min-width: 30em) {
     blockquote {
-      padding-right: 1.5rem;
-      padding-left: 1.25rem;
+        padding-right: 5rem;
+        padding-left: 1.25rem;
     }
-  }
-
-  img {
-    display: block;
-    max-width: 100%;
-    margin: 0 0 1rem;
-    border-radius: 2px;
-  }
-
-  /* Tables */
-  table {
-    margin-bottom: 1rem;
-    width: 100%;
-    border: 1px solid #F5F5F5;
-    border-collapse: collapse;
-  }
-  td,
-  th {
-    padding: .25rem .5rem;
-    border: 1px solid #F5F5F5;
-  }
-  tbody tr:nth-child(odd) td,
-  tbody tr:nth-child(odd) th {
-      background-color: #F1EED9;
-  }
+}
 
 
-  
-  /*
-   * Custom type
-   *
-   * Extend paragraphs with `.lead` for larger introductory text.
-   */
 
-  .lead {
+/* Markdown footnotes
+ *
+ * See the example content post for an example.
+ */
+
+/* Footnote number within body text */
+a[href^="#fn:"],
+
+/* Back to footnote link */
+a[href^="#fnref:"] {
+    display: inline-block;
+    margin-left: .1rem;
+    font-weight: bold;
+}
+
+/* List of footnotes */
+.footnotes {
+    margin-top: 2rem;
+    font-size: 85%;
+}
+
+/* Custom type
+ *
+ * Extend paragraphs with `.lead` for larger introductory text.
+ */
+.lead {
     font-size: 1.25rem;
     font-weight: 300;
-  }
+}
 
-
-  /*
-   * Messages
-   *
-   * Show alert messages to users. You may add it to single elements like a `<p>`,
-   * or to a parent if there are multiple elements to show.
-   */
-
-  .message {
-    margin-bottom: 1rem;
-    padding: 1rem;
-    color: #717171;
-    background-color: #f9f9f9;
-  }
-
-  
-  /*
-   * Container
-   *
-   * Center the page content.
-   */
-
-  .boat {
-    /* position:relative; */
-    max-width: 31rem;
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: auto;
+.outline-2 ul,
+.outline-2 ol,
+.outline-2 dl {
+    padding-left: 1.3rem;
+    //padding-left:  1.5rem;
+    //padding-right: 1.5rem;
+    padding-right: auto;
+    margin-left: 1.3rem;
+    //margin-left: 1.5rem;
+    //margin-left:  auto;
     margin-right: auto;
-  }
 
-  
-  /*
-   * Masthead
-   *
-   * Super small header above the content for site name and short description.
-   */
+    list-style-type: disc;
+}
 
-  .masthead {
-    width: inherit;
-    padding-bottom: 0;
-    margin-bottom: 1.5em;
-    margin-left: 0.3rem;
-    margin-right: 0.3rem;
-    /* text-align: right; */
-  }
+/* Code
+*
+* Inline and block-level code snippets. Includes tweaks to syntax highlighted
+* snippets from Pygments/Rouge and Gist embeds.
+*/
 
-  .masthead .mainsail {
-    line-height: 93%;
-    font-size: 200%;
-  }
+code,
+pre {
+    font-family: var(--default-code-font-family);
+}
 
-  .masthead .compass {
-    list-style: none;
-    padding-left: 0;
-    padding-right: 1rem;
-    width:inherit;
-  }
-  .masthead .compass img.icon {
-    width: 1.1em;
-    display:inline;
-    margin:0 .5em 0 0;
-    padding:0;
-    position:relative;
-    bottom:-0.15em;
-  }
-  .masthead .compass li {
-    font-family: "Droid Sans Mono", Helvetica, sans-serif;
-    font-size:120%;
-    width: inherit;
-    margin-top:.8em;
-  }
+code {
+    padding: .25em .5em;
+    font-size: 85%;
+    color: var(--default-code-color);
+    background-color: #f9f9f9;
+    border-radius: 3px;
+}
 
-  .masthead .compass input {
-    font-size:inherit;
-    width: 90%;
-    padding-left: 5px;
-  }
-  .masthead .mainsail, .masthead .headsail,
-  .masthead .compass {
+pre {
     margin-top: 0;
-    margin-bottom: 0;
-    color: #505050;
-  }
+    margin-bottom: 1rem;
+}
 
-  .masthead .compass {
-    margin-top: 1rem;
-  }
-  .masthead a {
-    color: #202020;
-  }
-
-  .masthead small {
-    vertical-align: text-top;
-    font-family: 'Droid Sans', sans-serif;
-    font-size: 90%;
-    font-weight: 400;
-    color: #044E49;
-    letter-spacing: 0;
-  }
-
-  a.author {
+pre code {
+    padding: 0;
+    font-size: 100%;
     color: inherit;
-  }
-  a.author:hover,
-  a.author:focus {
-    color: black;
-  }
+    background-color: transparent;
+}
 
 
-  
-  /*
-   * Posts and pages
-   *
-   * Each post is wrapped in `.post` and is used on default and post layouts. Each
-   * page is wrapped in `.page` and is only used on the page layout.
-   */
+/* Pygments via Jekyll */
+.highlight {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    font-size: .8rem;
+    line-height: 1.4;
+    background-color: #f9f9f9;
+    border-radius: .25rem;
+}
+.highlight pre {
+    margin-bottom: 0;
+    overflow-x: auto;
+}
+.highlight .lineno {
+    display: inline-block; /* Ensures the null space also isn't selectable */
+    padding-right: .75rem;
+    padding-left: .25rem;
+    color: #999;
+    /* Make sure numbers aren't selectable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
 
-  .main-deck {
-    font-size: 105%;
+
+/*
+ * Gist via GitHub Pages
+ *
+ * .gist .gist-file {
+ *   font-family: Menlo, Monaco, "Courier New", monospace !important;
+ * }
+ *
+ * .gist .markdown-body {
+ *   padding: 15px;
+ * }
+ *
+ * .gist pre {
+ *   padding: 0;
+ *   background-color: transparent;
+ * }
+ *
+ * .gist .gist-file .gist-data {
+ *   font-size: .8rem !important;
+ *   line-height: 1.4;
+ * }
+ *
+ * .gist code {
+ *   padding: 0;
+ *   color: inherit;
+ *   background-color: transparent;
+ *   border-radius: 0;
+ * }
+ */
+
+/* Layout
+ *
+ * Styles for managing the structural hierarchy of the site.
+ */
+.boat,
+.container {
+    max-width: 38rem;
+    padding-left:  1.5rem;
+    padding-right: 1.5rem;
+    margin-left:  auto;
+    margin-right: auto;
+}
+
+
+.main-deck {
+    font-size: 100%;
     margin:0;
     margin-left: 0.3rem;
     margin-right: 0.3rem;
@@ -445,468 +434,265 @@
     /* padding-right:0; */
     /* margin-left:  auto; */
     /* margin-right: auto; */
-  }
-
-  .main-deck p {
+}
+/*
+.main-deck p {
     text-align: justify;
-  }
-
-  .main-deck dd {
+}
+.main-deck dd {
     text-align: justify;
-  }
+}
+.main-deck h1 {
+    font-size: 1.5em;
+}
+.main-deck h2 {
+    margin-top: 1.7rem;
+    font-size: 1.25rem;
+}
+.main-deck h3,
+.main-deck h4,
+.main-deck h5,
+.main-deck h6 {
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+*/
 
-  .jaunt, .harbor {
-    width:inherit;
-    margin-bottom:2.5rem;
-  }
-  .wrap-up {
-    padding: 0;
-    margin: 0;
-    margin-bottom: 3em;
-
-    color: #333;
-    /* -moz-border-radius:6px; */
-    /* -webkit-border-radius:6px; */
-    /* box-shadow: .1rem .1rem .1rem #666; */
-    /* border:2px solid #e7e7e7; */
-    /* border-radius:6px; */
-    /* background-color: #e7e7e7; */
-  }
-
-  /* .border-box:active { */
-  /*     box-shadow: 0 0 .1rem #666; */
-  /*     position:relative; */
-  /*     left:.2em; */
-  /*     top:.2em; */
-  /* } */
-.wrap-up span {
-    display: inline-block;
+footer {
+    margin-bottom: 2rem;
 }
 
-  /* Blog post or page title */
-  .course-title,
-  .cruise-headline,
-  .cruise-headline a {
-    color: #303030;
-  }
-  .course-title,
-  .cruise-headline a,
-  .cruise-headline {
-    margin-top: 0;
-    padding-top: 0;
-  }
-
-  /* Meta data line below post title */
-  .cruise-date {
-    display: block;
-    margin-top: -.5rem;
-    margin-bottom: 1rem;
-  }
-  .cruise-date .comment-link {
-    float:right;
-  }
-  .cruise-date, .cruise-date .comment-link, .timestamp {
-    color: #999;
-  }
-
-  /* Share Buttons */
-  .share-buttons {
-    margin-bottom:0;
-  }
-  .share-buttons img {
-    display:inline;
-    width:2.3em;
-    margin-right:0.8em;
-  }
-  /* Tags */
-  @media (min-width: 30em) {
-    .tags-line {
-      float: right;
-    }
-  }
-  .tag, .tag a {
-    color: black;
-  }
-
-
-  /* -- comments/feedback region -- */
-  .feedback {
-      width: 100%;
-      float: left;
-      font-family: Arial, Helvetica, sans-serif;
-      color: #222;
-      background-color: #F5F5F5;
-  }
-  .feedback a {
-      color: #ead075;
-  }
-
-  .fb-comments, .fb-comments span, .fb-comments iframe {
-      min-width: 100% !important;
-      max-width: 100% !important;
-
-      font-family: Arial, Helvetica, sans-serif !important;
-      color: #b9543c !important;
-      background-color: #F1EED9 !important;
-  }
-
-  .fb-comments a, .fb-comments span a, .fb-comments iframe a {
-	color: #ead075 !important;
-  }
-
-
-
-  /* Related posts */
-  .related {
-    font-family:  'Droid Sans', sans-serif;
-    padding-top: 0;
-    padding-bottom: 1.3rem;
-  }
-  .related-posts {
-    padding-left: 0;
-    padding-right: 0;
-    list-style: none;
-  }
-
-  .related h3 {
-    margin-top: 1em;
-  }
-  .related-posts h4 {
-    margin-top: 0;
-    font-weight: normal;
-    font-size: 100%;
-  }
-  .related-posts li small {
-    font-size: 75%;
-    font-weight: bold;
-    color: #999;
-  }
-
-  .related-posts li small .tag{
-    color: black;
-    font-size: 115%;
-    font-weight: normal;
-  }
-  .related-posts li a:hover {
-    color: #268bd2;
-    text-decoration: none;
-  }
-  .related-posts li a:hover small {
-    color: inherit;
-  }
-
-  /* Archive */
-  ul.archive {
-    list-style: none;
-    padding-left: 3em;
-  }
-  .archive li {
-    padding-bottom: .6em;
-  }
-  .archive-date {
-    margin-left: -2em;
-    font-size: 85%;
-    font-family:  'Droid Sans Mono', monospace;
-    color: #666666;
-  }
-
-  @media (max-width: 30em) {
-    ul.archive {
-      padding-left: 2em;
-    }
-  }
-
-  
-  /* Right sidebar
-   */
-
-  .right-sidebar {
-    font-family: "Droid Serif", serif;
-    padding-bottom: 0;
-    padding-top: 0;
-    margin-right: 0rem;
-    margin-top:2rem;
-    margin-left:21rem;
-    margin-bottom: 0;
-    /* text-align:right; */
-    position:fixed;
-    top:0;
-    left:50%;
-    display:inline-block;
-    width:13rem;
-    height:100%;
-    /* background-color:blue; */
-    align-content: right;
-  }
-  .right-sidebar dl a {
-    color: black;
-  }
-  .right-sidebar h1 {
-    margin-top: 0;
-  }
-  .right-sidebar dd {
-    /* padding-left: 0; */
-    margin-left: 1em;
-    font-size: 93%;
-    letter-spacing: 0.5px;
-    color: #777;
-  }
-
-  .right-sidebar dt {
-    font-family: 'Droid Sans', "Helvetica Neue", Helvetica, sans-serif;
-    margin-left: 0;
-    color: #555;
-  }
-
-  
-  /*
-   * Pagination
-   *
-   * Super lightweight (HTML-wise) blog pagination. `span`s are provide for when
-   * there are no more previous or next posts to show.
-   */
-
-  .pagination {
-    overflow: hidden; /* clearfix */
-    margin-left: auto;
-    margin-right: auto;
-    font-family: sans-serif;
-    color: #ccc;
-    text-align: center;
-    font-weight:bold;
-    font-size:110%;
-  }
-
-  /* Pagination items can be `span`s or `a`s */
-  .pagination-item {
-    display: block;
-    padding: 1rem;
-    /* border: 1px solid #eee; */
-  }
-  .pagination-item:first-child {
-    margin-bottom: -1px;
-  }
-
-  /* Only provide a hover state for linked pagination items */
-  a.pagination-item:hover {
-    background-color: #FFF1EE;
-  }
-
-  .pagination {
-    margin: 3rem 0;
-  }
-  .pagination-item {
-    /* float: right; */
-    display:inline-block;
-    width: 40%;
-    margin: 4px;
-    border-radius:15px;
-  }
-  .pagination-item:last-child {
-    border-top-left-radius:    0;
-    border-bottom-left-radius: 0;
-  }
-  .pagination-item:first-child {
-    border-top-right-radius:    0;
-    border-bottom-right-radius: 0;
-  }
-
-  .twitter-follow,
-  .github-follow {
-    height: 28px;
-    width: 157px;
-    margin: 0.5em 0;
-  }
-
-  .gad {
-    width: 100%;
-    height: 100px;
-  }
-  .bottom {
-    position:absolute;
-    bottom:3rem;
-  }
-
-  .se-flair {
-    padding: 0;
-    margin: 0;
-  }
-
-  .gratipay-button {
-    margin: 0.5em 0;
-  }
-  .gratipay-button img {
-    height: 26.5px;
-    padding: 0;
-    margin: 0;
-  }
-  .centered-image {
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .PageNavigation {
-    font-size: 14px;
-    display: block;
-    width: 100%;
-    overflow: hidden;
-    margin: 1em 0;
-  }
-
-  .PageNavigation a {
-    display: block;
+/* -- comments/feedback region -- */
+.feedback {
     width: 100%;
     float: left;
-  }
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--default-body-color);
+    background-color: var(--default-body-bg);
+}
+.feedback a {
+    color: var(--default-orange);
+}
+.fb-comments, .fb-comments span, .fb-comments iframe {
+    min-width: 100% !important;
+    max-width: 100% !important;
+}
+.fb-comments a, .fb-comments span a, .fb-comments iframe a {
+    color: var(--default-orange) !important;
 
-  .PageNavigation .next {
-    text-align: right;
-  }
-  /* Responsiveness */
-  @media (max-height: 599px) {
-    .masthead .bottom {display:none;}
-  }
-  @media (min-height: 600px) {
-    .masthead .bottom {display:initial;}
-  }
+}
 
-  @media (max-width: 799px) {
-    .right-sidebar {display:none;}
-    .masthead .bottom {display:none;}
-    .mobile-only {display:block;}
+/* Masthead
+ *
+ * Super small header above the content for site name and short description.
+ */
 
-    .main-deck h1 {
-      font-size: 1.5em;
-    }
+.masthead {
+    padding-top:    2rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
 
-    .masthead .compass {
-      margin-top: .3rem;
-      margin-left: 0;
-      margin-right: 0;
-      padding-right: 0;
-    }
-    .masthead .compass li {
-      margin: 0;
-      margin-bottom: .3rem;
-      text-align: center;
-      font-size: 100%;
-      width: 32%;
-      display: none;
-    }
-    /* Only 3 links fit in mobile. */
-    .masthead .compass li:nth-child(1),
-    .masthead .compass li:nth-child(2),
-    .masthead .compass li:nth-child(3) {
-      display:inline-block;
-    }
+    border-bottom: 3px solid #ccc;
+}
+.masthead a {
+    color: #202020;
+}
+.masthead h3 {
+    margin-top:0;
+    margin-bottom:0;
+}
+.masthead ul {
+    margin-bottom:0;
+}
 
+.masthead small {
+    vertical-align: text-top;
+    font-size: 90%;
+    font-weight: 400;
+    color: #909090;
+    letter-spacing: 0;
+}
+
+.masthead .mainsail,
+.masthead-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: var(--default-gray-4);
+}
+.masthead .mainsail a,
+.masthead-title a {
+    color: inherit;
+}
+.masthead .headsail small,
+.masthead-title small {
+    font-size: 75%;
+    font-weight: 400;
+    opacity: .5;
+}
+.masthead .compass {
+    list-style: none;
+    padding-left: 0;
+    padding-right: 1rem;
+    width:inherit;
+}
+.masthead .compass li {
+    font-size:120%;
+    width: inherit;
+    margin-top:.8em;
+}
+
+/* Posts and pages
+  *
+  * Each post is wrapped in `.post` and is used on default and post layouts. Each
+  * page is wrapped in `.page` and is only used on the page layout.
+  */
+
+ .journey h1 {
+     font-size: 1.5rem;
+ }
+
+ .harbor,
+ .jaunt,
+ .page,
+ .post {
+     margin-bottom: 4em;
+ }
+ .page li + li,
+ .post li + li {
+     margin-top: .25rem;
+ }
+
+ .wrap-up {
+     padding: 0;
+     margin: 0;
+     margin-bottom: 0;
+ }
+ .wrap-up span {
+     display: inline-block;
+ }
+.wrap-up p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+ /* Blog post or page title */
+ .course-title,
+ .cruise-headline,
+ .cruise-headline a,
+ .page-title,
+ .post-title,
+ .post-title a {
+     color: #303030;
+ }
+ .course-title,
+ .cruise-headline,
+ .page-title,
+ .post-title {
+     margin-top: 0;
+ }
+
+ /* Meta data line below post title */
+ .cruise-date,
+ .post-date {
+     display: block;
+     margin-top: -.5rem;
+     margin-bottom: 1rem;
+     color: #9a9a9a;
+ }
+
+
+
+ /* Related posts */
+ .related {
+     padding-top: 2rem;
+     padding-bottom: 2rem;
+     margin-bottom: 2rem;
+     border-top: 1px solid #eee;
+     border-bottom: 1px solid #eee;
+ }
+
+ .related-posts {
+     padding-left: 0;
+     list-style: none;
+ }
+ .related-posts h3 {
+     margin-top: 0;
+ }
+ .related-posts li {
+ }
+ .related-posts li small {
+     font-size: 75%;
+     color: #999;
+ }
+ .related-posts li a:hover {
+     color: #268bd2;
+     text-decoration: none;
+ }
+ .related-posts li a:hover small {
+     color: inherit;
+ }
+
+/* Pagination
+*
+* Super lightweight (HTML-wise) blog pagination. `span`s are provide for when
+* there are no more previous or next posts to show.
+*/
+.pagination {
+    overflow: hidden; /* clearfix */
+    margin: 0 -1.5rem 1rem;
+    color: #ccc;
+    text-align: center;
+}
+
+/* Pagination items can be `span`s or `a`s */
+.pagination-item {
+    display: block;
+    padding: 1rem;
+    border: solid #eee;
+    border-width: 1px 0;
+}
+.pagination-item:first-child {
+    margin-bottom: -1px;
+}
+
+
+/* Only provide a hover state for linked pagination items */
+a.pagination-item:hover {
+    background-color: #f5f5f5;
+}
+
+
+@media (min-width: 30em) {
     .pagination {
-      width: 99%;
-    }
-  }
-
-  @media (min-width: 800px) {
-    .right-sidebar {display:none;}
-    .masthead .bottom {display:initial;}
-    .mobile-only {display:none;}
-
-    .boat {
-      /* overflow:hidden; */
-      max-width: 52rem;
-      /* width:34rem; */
-      margin-left:  auto;
-      margin-right: auto;
-      /* background-color:red; */
+        margin: 3rem 0;
     }
 
-    .masthead {
-      margin-top:2rem;
-      margin-right:11rem;
-      margin-bottom: 0;
-      /* text-align:right; */
-      position:fixed;
-      top:0;
-      right:50%;
-      display:block;
-      width:13rem;
-      height:100%;
+    .pagination-item {
+        float: left;
+        width: 50%;
+        border-width: 1px;
     }
-    .main-deck {
-      /* float:left; */
-      margin-left:18rem;
-      /* width:34rem; */
-      display:inline-block;
-      /* overflow:scroll; */
-    }  
-  }
-
-  @media (min-width: 1110px) {
-    .boat {
-      /* overflow:hidden; */
-      max-width: 33rem;
-      /* width:34rem; */
-      margin-left:  auto;
-      margin-right: auto;
-      /* background-color:red; */
+    .pagination-item:first-child {
+        margin-bottom: 0;
+        border-top-left-radius:    4px;
+        border-bottom-left-radius: 4px;
+    }
+    .pagination-item:last-child {
+        margin-left: -1px;
+        border-top-right-radius:    4px;
+        border-bottom-right-radius: 4px;
     }
 
-    .main-deck {
-      margin-left: 1rem;
-      margin-right: 1rem;
-    }
+}
 
-    .right-sidebar {display:initial;}
-
-    .masthead {
-      /* background-color:blue; */
-      margin-right:20rem;
-      /* text-align:right; */
-    }
-  }
-
-  
-  /* KBD */
-
-  /* Added by me */
-  kbd
-  {
-    -moz-border-radius: 6px;
-    -moz-box-shadow: 0 1px 0 rgba(0,0,0,0.2),0 0 0 2px #fff inset;
-    -webkit-border-radius: 6px;
-    -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.2),0 0 0 2px #fff inset;
-    background-color: #f7f7f7;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    box-shadow: 0 1px 0 rgba(0,0,0,0.2),0 0 0 2px #fff inset;
-    color: #333;
-    display: inline-block;
-    font-family: 'Droid Sans Mono', monospace;
-    font-size: 80%;
-    font-weight: normal;
-    line-height: inherit;
-    margin: 0 .1em;
-    padding: .08em .4em;
-    text-shadow: 0 1px 0 #fff;
-    word-spacing: -4px;
-  }
-
-  .white-pre {
-    color: #fff;
-    width: 100%;
-  }
-
-  .code-input {
-    font-size: 70%;
-    font-family: 'Droid Sans Mono', monospace;
-    border-radius: 6px;
-    /* width: 100%; */
-  }
-
-  /* For some reason, the pre-blocks generated are wrapped in a figure
-     class="highlight". */
-  figure.highlight {
-    width: 95%;
-    margin-left: 0.5em;
-    margin-right: 0.5em;
-  }
+/* Messages
+ *
+ * Show alert messages to users. You may add it to single elements like a `<p>`,
+ * or to a parent if there are multiple elements to show.
+ */
+.message {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    color: #717171;
+    background-color: #f9f9f9;
+}
