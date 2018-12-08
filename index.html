@@ -70,7 +70,16 @@
   js = d.createElement(s); js.id = id;
   js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
   fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+<script>
+
+      FB.Event.subscribe('send_to_messenger', function(e) {
+      // callback for events triggered by the plugin
+
+      });
+
+</script>
 </div><!-- preamble -->
 <div class="main-deck">
  <div class="harbor">
@@ -182,11 +191,19 @@ Tags:
  </div>
 </div>
 
-
+<div class="feedback">
 <!-- Your customer chat code -->
 <div class="fb-customerchat"
   attribution=setup_tool
   page_id="356993381725418">
+</div>
+<div class="fb-send-to-messenger" 
+  messenger_app_id="<APP_ID>" 
+  page_id="PAGE_ID" 
+  data-ref="<PASS_THROUGH_PARAM>" 
+  color="<blue | white>" 
+  size="<standard | large | xlarge>">
+</div>
 </div>
 
 
