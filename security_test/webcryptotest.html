@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title> Web Cryptography API test </title>
+
+    <script src="webcryptotest.js"></script>
+
+  </head>
+  <body>
+
+    <h1> Web Cryptography API test </h1>
+
+    <div>
+      Plain Text: <input type="text" id="plainTextGCM" value="Hello 8gwifi.org">
+      <button type="button" onclick="SHA_1_HASH()">sha1</button>
+      <button type="button" onclick="SHA_256_HASH()">sha256</button>
+      <button type="button" onclick="SHA_512_HASH()">sha512</button>
+    </div>
+    <div>
+      Hashed Text: <input type="text" id="hashtext" size="120">
+    </div>
+
+
+    <div>
+        Plain Text: <input type="text" id="plainTextGCM2" value="Hello, 8gwifi.org">
+        <button type="button" onclick="AES_GCM_encrypt()">encryptGCM</button>
+        <button type="button" onclick="AES_CBC_encrypt()">encryptCBC</button>
+        <button type="button" onclick="AES_CTR_encrypt()">encryptCTR</button>
+    </div>
+    <div>
+        Cipher Text: <input type="text" id="cipherTextGCM" size="50">
+        <button type="button" onclick="AES_GCM_decrypt()">decryptGCM</button>
+        <button type="button" onclick="AES_CBC_decrypt()">decryptCBC</button>
+	<button type="button" onclick="AES_CTR_decrypt()">decryptCTR</button>
+    </div>
+  
+    <div id="resultGCM">
+        Result:
+    </div>
+
+
+
+
+
+<div>
+    Plain Text: <input type="text" id="plainTextGCM3" value="Hello 8gwifi.org">
+    <button type="button" onclick="AES256_GCM_ENCRYPT()">AES256-GCM-ENCRYPT</button>
+</div>
+<div>
+    Cipher Text: <input type="text" id="cipherTextGCM3" size="50">
+    <button type="button" onclick="AES256_GCM_decrypt()">AES256_GCM_decrypt</button>
+</div>
+<div id="resultGCM3">
+    Result:
+</div>
+    
+  </body>
+</html>

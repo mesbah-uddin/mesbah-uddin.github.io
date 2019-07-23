@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button to display a string as a hyperlink.</p>
+
+<button onclick="myFunction()">Try it</button>
+<p id="demo"></p>
+
+<script>
+  function createDiv(responsetext)
+  {
+      var _body = document.getElementsByTagName('body')[0];
+      var _div = document.createElement('div');
+      _div.innerHTML = responsetext;
+      _body.appendChild(_div);
+  }
+
+  function httpGet(theUrl)
+  {
+      if (window.XMLHttpRequest)
+      {// code for IE7+, Firefox, Chrome, Opera, Safari
+          xmlhttp=new XMLHttpRequest();
+      }
+      else
+      {// code for IE6, IE5
+          xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+      }
+      xmlhttp.onreadystatechange=function()
+      {
+          if (xmlhttp.readyState==4 && xmlhttp.status==200)
+          {
+              createDiv(xmlhttp.responseText);
+          }
+      }
+      xmlhttp.open("GET", theUrl, false);
+      xmlhttp.send();
+  }
+
+
+  function myFunction() {
+      //var str = "Testing!";
+      //var result = str.link("http://www.google.com");
+      //document.getElementById("demo").innerHTML = result;
+
+      var url = "https://localhost:4443/slides/mba/idea/One.html";
+      var request = createXMLHttpRequest();
+      request.open("GET", url, true);
+      request.send("");
+
+      //document.open();
+      //document.write(httpGet("http://localhost:8000/slides/mba/idea/One.html"));
+      //document.close();
+
+      request.onreadystatechange = function() {
+	  if (request.readyState == 4 && request.status == 200) {
+	      //受信完了時の処理
+	      var result = document.getElementById("result");
+	      var text = document.createTextNode(decodeURI(request.responseText));
+	      result.appendChild(text);
+	  }
+      }
+  }
+
+  
+</script>
+
+</body>
+</html>
